@@ -13,14 +13,21 @@ kubectl
 control plain 
   gerencia o schedule e control manager 
 
-etcd - banco que salva as configurações do k8s 
-Api que fica exposta pra conexão 
+Master node:  
+    o  Master node é  o  componente  central  do  Kubernetes, responsável  pelo  gerenciamento  do  cluster  e  
+    pela  tomada  de  decisões sobre onde e como executar os Pods.
+    
+Worker node:  
+o  Worker node  é  um  node  que  executa  os  Pods  e  outros recursos no ambiente do Kubernetes.
 
-Workers 
-  kubelet 
-  tem o no que faz o nosso trabalho de gerenciar os pods 
- 
- kubeproxy - gerencia os dados proxys 
+etcd: 
+    etcd é um banco de dados distribuído que armazena a configuração do Kubernetes e o estado do cluster.
+    
+kubelet:  
+    o  kubelet  é  um  agente  que  executa  em  cada  node  do  cluster  e gerencia os 
+    Pods que são executados nesse node.
+
+kube-proxy: o kube-proxy é responsável por encaminhar o tráfego de rede para os Pods no cluster
 
  pod 1 - tem os containers com as imagens 
    svc  
