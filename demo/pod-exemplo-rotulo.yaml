@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: meu-pod-curso-k8s
+  labels:
+    app: minha-aplicacao-de-exemplo
+    instance: app-instance-1
+  annotations:
+    autor: Luis Antonio
+    description: "Pod de exemplo para o curso de Kubernetes"
+    owner: "s"
+    app-version: 1.0.0
+spec:
+  containers:
+  - name: meu-container
+    image: nginx:lastest
+    ports:
+    - containerPort: 80
+      protocol: TCP
+    resources:
+      limits:
+        cpu: "0.5"
+        memory: "512Mi"
+      requests:
+        cpu: "0.25"
+        memory: "256Mi"
+    volume-mounts:
+    - name: meu-volume
+      mountPath: /var/www/html
+  volumes:
+  - name: meu-volume
+    emptyDir: {}

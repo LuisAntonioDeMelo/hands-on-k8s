@@ -1,0 +1,29 @@
+pod/ pod/ pod
+
+quem gerencia e o service
+svc - sempre tem a mesma configuração
+
+
+
+kubectl apply -f k8s/
+
+kubectl 
+ trabalha na camada das api's do cluster
+
+control plain 
+  gerencia o schedule e control manager 
+
+etcd - banco que salva as configurações do k8s 
+Api que fica exposta pra conexão 
+
+Workers 
+  kubelet 
+  tem o no que faz o nosso trabalho de gerenciar os pods 
+ 
+ kubeproxy - gerencia os dados proxys 
+
+ pod 1 - tem os containers com as imagens 
+   svc  
+ pod 2  - containers com a imagens
+   svc
+
