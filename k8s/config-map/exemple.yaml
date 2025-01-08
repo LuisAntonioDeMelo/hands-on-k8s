@@ -1,0 +1,83 @@
+#micro A 
+ 
+#micro B
+
+#micro C
+
+#emergencia tem que trocar 
+#no kubernets temos o conceito de config maps 
+
+
+#config maps são objetos do kubernetes que armazenam dados de configuração em um mapa chave-valor
+#eles são úteis para armazenar informações que são necessárias para a execução de um pod
+#como variáveis de ambiente, arquivos de configuração e etc
+
+#vamos criar um config map para armazenar a porta do microserviço worker
+#k8s/config-map/exemple.yaml
+#apiVersion: v1
+#kind: ConfigMap
+#metadata:
+#  name: worker-config
+#data:
+#  PORT: "3000"
+
+#vamos aplicar o config map
+#kubectl apply -f k8s/config-map/exemple.yaml
+
+#vamos ver o config map
+#kubectl get configmap
+
+#vamos ver os detalhes do config map
+#kubectl describe configmap worker-config
+
+#agora que temos um config map com a porta do microserviço worker
+#vamos usar essa porta no arquivo de deployment do worker
+#k8s/worker.exemple.yaml
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: worker
+#spec:
+#  replicas: 3
+#  selector:
+#    matchLabels:
+#      app: worker
+#  template:
+#    metadata:
+#      labels:
+#        app: worker
+#    spec:
+#      containers:
+#      - name: worker
+#        image: sds/worker
+#        ports:
+#        - containerPort: 3000
+#        env:
+#        - name: PORT
+#          valueFrom:
+#            configMapKeyRef:
+#              name: worker-config
+#              key: PORT
+
+#vamos aplicar o deployment
+#kubectl apply -f k8s/worker.exemple.yaml
+
+#vamos ver os pods
+#kubectl get pods
+
+#vamos ver os detalhes de um pod
+#kubectl describe pod worker-...
+
+#vamos ver os logs de um pod
+#kubectl logs worker-...
+
+#vamos acessar um pod
+#kubectl exec -it worker-... -- sh
+
+#vamos acessar o container do pod
+#kubectl exec -it worker-... -- sh
+
+#vamos ver as variáveis de ambiente do container
+#printenv
+
+#vamos sair do container#

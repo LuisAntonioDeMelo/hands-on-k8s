@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+  labels:
+    app: db-config
+data:
+  MONGO_URL: mongodb://mongo-nodeport-svc/personalidades
+  REDIS_URL: redis://redis-nodeport-svc/
