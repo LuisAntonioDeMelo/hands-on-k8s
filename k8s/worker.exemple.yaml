@@ -1,0 +1,26 @@
+worker 
+
+
+31000:3000
+pod 
+- svc 
+
+#node port 
+# - é um serviço que expõe um pod para o mundo externo
+
+
+#cluster ip
+# - cluster ip é um ip interno do cluster
+
+
+#Load balancer
+# - é um balanceador de carga que distribui a carga entre os pods de um serviço
+
+
+#duvida!
+# - o que é um pod?
+# -  o pod é a menor unidade de um cluster kubernetes, ele é composto por um ou mais containers que 
+#     compartilham recursos como rede e armazenamento
+# - o que é um serviço no kubernetes?
+# -  um serviço é um recurso do kubernetes que permite expor um pod para o mundo externo
+
