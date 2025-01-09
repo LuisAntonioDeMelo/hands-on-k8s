@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: fiap-site-1
+  labels:
+    app: fiap-site-1
+spec:
+  containers:
+  - name: fiap-site-1
+    image: devluis27/fiap-site-1
+    ports:
+    - containerPort: 80

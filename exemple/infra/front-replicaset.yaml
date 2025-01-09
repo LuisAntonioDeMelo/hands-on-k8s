@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: front-replicaset
+  labels:
+    app: fiap-site-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fiap-site-1
+  template:
+    metadata:
+      labels:
+        app: fiap-site-1
+    spec:
+      containers:
+      - name: front-container
+        image: devluis27/fiap-site-1
+        ports:
+        - containerPort: 80
