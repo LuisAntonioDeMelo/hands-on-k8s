@@ -1,0 +1,14 @@
+apiVersion: v1 
+kind: PersistentVolume
+metadata:
+  name: fiap-pv 
+  labels:
+    name: fiap-pv
+spec:
+  capacity:
+    storage: 5Mi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/home/luis/dev/aula/volumes"
