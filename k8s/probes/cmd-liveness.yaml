@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind : Pod 
+metadata:
+  name: pageexample
+  labels: 
+    app: pageexample 
+spec:
+  containers: 
+  - name: c-pageexample
+    image: devluis27/fiap-site-1
+    livenessProbe:
+      exec:
+        command:
+        - ls
+        - /var/www/html 
+      initialDelaySeconds: 20
+      periodSeconds: 30

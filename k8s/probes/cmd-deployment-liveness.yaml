@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liveness-cmd
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: pageexample
+  template:
+    metadata:
+      labels: 
+        app: pageexample
+    spec:
+      containers:
+      - name: c-pageexample
+        image: devluis27/fiap-site-1
+        livenessProbe:
+          exec:
+            command:
+            - ls
+            - /var/www/html
+          initialDelaySeconds: 20
+          periodSeconds: 30
